@@ -1,5 +1,3 @@
-import "./Header.scss";
-
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
@@ -11,11 +9,15 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink, Link } from "react-router-dom";
-import { useAuth } from "../../hooks/use-auth";
+import { useAuth } from "hooks/use-auth";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { useDispatch } from "react-redux";
+import { removeUser } from "store/userSlice";
+import { useNavigate } from "react-router-dom";
+import cookies from "cookies";
 
 function HideOnScroll(props) {
     const { children, window } = props;
@@ -42,12 +44,13 @@ const pages = [
         isAuth: false,
     },
 ];
-const settings = ["Profile", "Logout"];
 
 const Header = (props) => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const user = useAuth();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -67,7 +70,7 @@ const Header = (props) => {
 
     return (
         <HideOnScroll {...props}>
-            <AppBar>
+            <AppBar sx={{ height: "64px" }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <Typography
@@ -135,7 +138,7 @@ const Header = (props) => {
                                                     textDecoration: "none",
                                                     color: isActive
                                                         ? "#000"
-                                                        : "#fff",
+                                                        : "#cccccc",
                                                 };
                                             }}
                                         >
@@ -195,46 +198,50 @@ const Header = (props) => {
                         </Box>
 
                         {user.isAuth && (
-                            <Box sx={{ flexGrow: 0 }}>
-                                <Tooltip title="Open settings">
-                                    <IconButton
-                                        onClick={handleOpenUserMenu}
-                                        sx={{ p: 0 }}
+                            <>
+                                <Box sx={{ flexGrow: 0, mr: 2 }}>
+                                    <Typography>{user.email}</Typography>
+                                </Box>
+                                <Box sx={{ flexGrow: 0 }}>
+                                    <Tooltip title="Open settings">
+                                        <IconButton
+                                            onClick={handleOpenUserMenu}
+                                            sx={{ p: 0 }}
+                                        >
+                                            <MoreVertIcon />
+                                        </IconButton>
+                                    </Tooltip>
+                                    <Menu
+                                        sx={{ mt: "45px" }}
+                                        id="menu-appbar"
+                                        anchorEl={anchorElUser}
+                                        anchorOrigin={{
+                                            vertical: "top",
+                                            horizontal: "right",
+                                        }}
+                                        keepMounted
+                                        transformOrigin={{
+                                            vertical: "top",
+                                            horizontal: "right",
+                                        }}
+                                        open={Boolean(anchorElUser)}
+                                        onClose={handleCloseUserMenu}
                                     >
-                                        <Avatar
-                                            alt="Remy Sharp"
-                                            src="/static/images/avatar/2.jpg"
-                                        />
-                                    </IconButton>
-                                </Tooltip>
-                                <Menu
-                                    sx={{ mt: "45px" }}
-                                    id="menu-appbar"
-                                    anchorEl={anchorElUser}
-                                    anchorOrigin={{
-                                        vertical: "top",
-                                        horizontal: "right",
-                                    }}
-                                    keepMounted
-                                    transformOrigin={{
-                                        vertical: "top",
-                                        horizontal: "right",
-                                    }}
-                                    open={Boolean(anchorElUser)}
-                                    onClose={handleCloseUserMenu}
-                                >
-                                    {settings.map((setting) => (
                                         <MenuItem
-                                            key={setting}
-                                            onClick={handleCloseNavMenu}
+                                            onClick={(e) => {
+                                                handleCloseNavMenu(e);
+                                                cookies.remove("user");
+                                                dispatch(removeUser());
+                                                navigate("/");
+                                            }}
                                         >
                                             <Typography textAlign="center">
-                                                {setting}
+                                                Logout
                                             </Typography>
                                         </MenuItem>
-                                    ))}
-                                </Menu>
-                            </Box>
+                                    </Menu>
+                                </Box>
+                            </>
                         )}
                     </Toolbar>
                 </Container>

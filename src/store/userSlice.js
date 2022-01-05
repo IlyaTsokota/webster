@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import cookies from "cookies";
+
+const user = cookies.get("user");
 
 const initialState = {
-    email: null,
-    token: null,
-    id: null,
+    email: (user && user.email) || null,
+    token: (user && user.token) || null,
+    id: (user && user.id) || null,
 };
 
 const userSlice = createSlice({

@@ -1,46 +1,60 @@
-import { Box, Button, Typography, Grid } from "@mui/material";
+import { Box, Button, Typography, Grid, Container } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import { useAuth } from "hooks/use-auth";
+import Editor from "components/editor/Editor";
 
 const HomePage = () => {
     const navigate = useNavigate();
+    const { isAuth } = useAuth();
+
+    if (isAuth) {
+        return <Editor />;
+    }
 
     return (
-        <Grid
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            sx={{
-                minHeight: "80vh",
-            }}
-        >
-            <Box
-                component="div"
+        <Container maxWidth="xl">
+            <Grid
+                container
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
                 sx={{
-                    p: 2,
-                    textAlign: "center",
-                    maxWidth: "650px",
-                    margin: "0 auto",
+                    paddingTop: "80px",
+                    minHeight: "calc(100vh - 80px)",
                 }}
             >
-                <Typography
-                    variant="h1"
-                    fontSize={34}
+                <Box
+                    component="div"
                     sx={{
-                        mb: 2,
+                        p: 2,
+                        textAlign: "center",
+                        maxWidth: "650px",
+                        margin: "0 auto",
                     }}
                 >
-                    Live your fantasies with a graphics editor
-                    <Typography variant="h1" fontSize={40} fontWeight={700}>
+                    <Typography variant="h2" fontSize={34}>
+                        Live your fantasies with a graphics editor
+                    </Typography>
+                    <Typography
+                        variant="h1"
+                        sx={{
+                            mb: 2,
+                        }}
+                        fontSize={40}
+                        fontWeight={700}
+                    >
                         Autobots Editor
                     </Typography>
-                </Typography>
-                <Button variant="contained" onClick={() => navigate("/login")}>
-                    Start Edit
-                </Button>
-            </Box>
-        </Grid>
+                    <Button
+                        variant="contained"
+                        onClick={() => navigate("/login")}
+                    >
+                        Start Edit
+                    </Button>
+                </Box>
+            </Grid>
+        </Container>
     );
 };
 
