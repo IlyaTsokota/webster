@@ -22,6 +22,8 @@
 	<div class="wrapper">
 
 		<nav aria-label="Main Menu" class="main_menu" id="main_menu"></nav>
+
+		<div class="topbar" id="tools_container"></div>
 		
 		<div class="submenu">
 			<div class="block attributes" id="action_attributes"></div>
@@ -30,7 +32,17 @@
 			</button>
 		</div>
 		
-		<div class="sidebar_left" id="tools_container"></div>
+		<div class="sidebar_left">
+
+			<div class="preview block">
+				<div id="toggle_preview"></div>
+			</div>
+
+			<div class="colors block">
+				<div class="content" id="toggle_colors"></div>
+			</div>
+
+		</div>
 
 
 		<div class="middle_area" id="middle_area">
@@ -52,14 +64,7 @@
 		</div>
 
 		<div class="sidebar_right">
-			<div class="colors block">
-				<h2 class="trn toggle" data-target="toggle_colors">Colors</h2>
-				<div class="content hidden" id="toggle_colors"></div>
-			</div>
-
-			<div class="preview block">
-				<div id="toggle_preview"></div>
-			</div>
+			
 			
 			<div class="block" id="info_base">
 				<div class="content" id="toggle_info"></div>

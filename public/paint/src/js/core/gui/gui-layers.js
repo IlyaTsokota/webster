@@ -129,6 +129,9 @@ class GUI_layers_class {
 			for (var i in layers) {
 				var value = layers[i];
 
+				
+				html += '	<span class="delete" id="delete" data-id="' + value.id + '" title="delete"></span>';
+				html += '	<span class="layer_name" id="layer_name" data-id="' + value.id + '">' + value.name + '</span>';
 				if (value.id == config.layer.id)
 					html += '<div class="item active">';
 				else
@@ -137,9 +140,7 @@ class GUI_layers_class {
 					html += '	<span class="visibility visible" id="visibility" data-id="' + value.id + '" title="hide"></span>';
 				else
 					html += '	<span class="visibility" id="visibility" data-id="' + value.id + '" title="show"></span>';
-				html += '	<span class="delete" id="delete" data-id="' + value.id + '" title="delete"></span>';
-				html += '	<span class="layer_name" id="layer_name" data-id="' + value.id + '">' + value.name + '</span>';
-				html += '	<div class="clear"></div>';
+				//html += '	<div class="clear"></div>';
 				html += '</div>';
 
 				//show filters

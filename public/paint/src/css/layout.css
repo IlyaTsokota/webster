@@ -10,12 +10,13 @@
 	height: auto;
 	overflow: hidden;
 
-	-ms-grid-rows:  1fr auto;
-	grid-template-rows:  1fr auto;
+	-ms-grid-rows: auto 1fr auto;
+	grid-template-rows: auto 1fr auto;
 	-ms-grid-columns: auto 1fr auto;
 	grid-template-columns: auto 1fr auto;
 
 	grid-template-areas:
+		"topbar topbar topbar"
 		"sidebar_left main sidebar_right"
 		"submenu submenu submenu";
 }
@@ -62,7 +63,7 @@
 	position: relative;
 	background-color: rgba(255, 255, 255, 0.2);
 	background-color: var(--block-background-color);
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	user-select: none;
 }
 .sidebar_right .block{
@@ -240,37 +241,19 @@ body .sp-preview{
 	padding: 3px 10px;
 }
 
-/* ========== left sidebar ================================================== */
+/* ========== topbar ================================================== */
 
-.sidebar_left{
-	-ms-grid-row: 2;
-	-ms-grid-column: 1;
-	grid-area: sidebar_left;
+.topbar{
+	grid-area: topbar;
 	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
 	background-color: var(--section-background-color);
-	padding: 10px 5px 5px 0;
-	margin: 0 5px 0 5px;
-	overflow: hidden;
-	align-self: start;
-	width: 45px;
-	overflow-y: auto;
-	height: 100%;
+	padding: 3px 0;
+	margin: 5px;
+	height: 45px;
 	position: relative;
 }
 
-.sidebar_left:before{
-	position: absolute;
-	top: 5px;
-	left: calc(50% - 50% / 2);
-	content: '';
-	width: 50%;
-	height: 5px;
-	background-color: var(--background);
-}
-
-.sidebar_left .item{
+.topbar .item{
 	position: relative;
 	display:block;
 	background-color: transparent;
@@ -282,7 +265,7 @@ body .sp-preview{
 	border: 1px solid transparent;
 	border-radius: 3px;
 }
-.sidebar_left .item:after{
+.topbar .item:after{
 	position: absolute;
 	content: '';
 	left:0;
@@ -294,11 +277,11 @@ body .sp-preview{
 	background-repeat: no-repeat;
 	background-size: 20px 20px;
 }
-.sidebar_left .item:hover{
+.topbar .item:hover{
 	background-color: var(--background-color-hover);
 	border-color: var(--input-border-color);
 }
-.sidebar_left .item.active{
+.topbar .item.active{
 	background-color: var(--background-color-active);
 	color: var(--text-color-active);
 	border-color: var(--input-border-color);
@@ -307,25 +290,38 @@ body .sp-preview{
 /*
 IMPORTANT: any new icon should also must be added on /service-worker.js + its version should be updated !!!
  */
-.sidebar_left .select:after{ background-image: url('images/icons/select.svg'); }
-.sidebar_left .selection:after{ background-image: url('images/icons/selection.svg'); }
-.sidebar_left .brush:after{ background-image: url('images/icons/brush.svg'); }
-.sidebar_left .pencil:after{ background-image: url('images/icons/pencil.svg'); }
-.sidebar_left .pick_color:after{ background-image: url('images/icons/pick_color.svg'); }
-.sidebar_left .erase:after{ background-image: url('images/icons/erase.svg'); }
-.sidebar_left .magic_erase:after{ background-image: url('images/icons/magic_erase.svg'); }
-.sidebar_left .fill:after{ background-image: url('images/icons/fill.svg'); }
-.sidebar_left .media:after{ background-image: url('images/icons/media.svg'); }
-.sidebar_left .shape:after{ background-image: url('images/icons/shape.svg'); }
-.sidebar_left .text:after{ background-image: url('images/icons/text.svg'); background-size: 16px auto; }
-.sidebar_left .gradient:after{ background-image: url('images/icons/gradient.png'); background-size: 18px 12px; filter: none; }
-.sidebar_left .clone:after{ background-image: url('images/icons/clone.svg'); }
-.sidebar_left .crop:after{ background-image: url('images/icons/crop.svg'); }
-.sidebar_left .blur:after{ background-image: url('images/icons/blur.svg'); }
-.sidebar_left .sharpen:after{ background-image: url('images/icons/sharpen.svg'); }
-.sidebar_left .desaturate:after{ background-image: url('images/icons/desaturate.svg'); }
-.sidebar_left .bulge_pinch:after{ background-image: url('images/icons/bulge_pinch.svg'); }
-.sidebar_left .animation:after{ background-image: url('images/icons/animation.svg'); }
+.topbar .select:after{ background-image: url('images/icons/select.svg'); }
+.topbar .selection:after{ background-image: url('images/icons/selection.svg'); }
+.topbar .brush:after{ background-image: url('images/icons/brush.svg'); }
+.topbar .pencil:after{ background-image: url('images/icons/pencil.svg'); }
+.topbar .pick_color:after{ background-image: url('images/icons/pick_color.svg'); }
+.topbar .erase:after{ background-image: url('images/icons/erase.svg'); }
+.topbar .magic_erase:after{ background-image: url('images/icons/magic_erase.svg'); }
+.topbar .fill:after{ background-image: url('images/icons/fill.svg'); }
+.topbar .media:after{ background-image: url('images/icons/media.svg'); }
+.topbar .shape:after{ background-image: url('images/icons/shape.svg'); }
+.topbar .text:after{ background-image: url('images/icons/text.svg'); background-size: 16px auto; }
+.topbar .gradient:after{ background-image: url('images/icons/gradient.png'); background-size: 18px 12px; filter: none; }
+.topbar .clone:after{ background-image: url('images/icons/clone.svg'); }
+.topbar .crop:after{ background-image: url('images/icons/crop.svg'); }
+.topbar .blur:after{ background-image: url('images/icons/blur.svg'); }
+.topbar .sharpen:after{ background-image: url('images/icons/sharpen.svg'); }
+.topbar .desaturate:after{ background-image: url('images/icons/desaturate.svg'); }
+.topbar .bulge_pinch:after{ background-image: url('images/icons/bulge_pinch.svg'); }
+.topbar .animation:after{ background-image: url('images/icons/animation.svg'); }
+
+/* ========== left sidebar ================================================== */
+
+.sidebar_left{
+	grid-area: sidebar_left;
+	background-color: var(--section-background-color);
+	padding: 5px;
+	margin: 0 5px;
+	width: 230px;
+	overflow-y: auto;
+	height: 100%;
+	position: relative;
+}
 
 @media screen and (max-width:550px){
 	#sidebar_left{
@@ -364,11 +360,11 @@ IMPORTANT: any new icon should also must be added on /service-worker.js + its ve
 /* preview */
 .canvas_preview_wrapper{
 	position:relative;
-	height:100px;
-	margin: 15px 15px 10px 15px;
+	padding-top: 10px;
+	margin: 0px 15px 10px 15px;
 }
 .canvas_preview_details{
-	padding: 0 15px;
+	padding: 15px 15px 0 15px;
 }
 .preview canvas{
 	cursor: pointer;
@@ -414,9 +410,10 @@ IMPORTANT: any new icon should also must be added on /service-worker.js + its ve
 }
 .layers_list .item{
 	margin-bottom:2px;
+	float: right;
 }
 .layers_list .layer_name{
-	display:block;
+	display: inline-block;
 	padding:1px 5px 3px 5px;
 	height:19px;
 	overflow:hidden;
@@ -428,6 +425,7 @@ IMPORTANT: any new icon should also must be added on /service-worker.js + its ve
 	cursor:pointer;
 	overflow:hidden;
 	font-size: 12px;
+	width: 120px;
 	color:var(--text-color);
 	white-space: nowrap;
 }

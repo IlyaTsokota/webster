@@ -32,7 +32,6 @@ class GUI_menu_class {
 			menuTemplate += this.generate_menu_bar_item_template(item, i);
 		}
 		menuTemplate += '</ul>';
-		menuTemplate += '<span class="main_menu_title">webster (ucode.world)</span>';
 
 		this.menuContainer.innerHTML = menuTemplate;
 		this.menuBarNode = this.menuContainer.querySelector('[role="menubar"]');

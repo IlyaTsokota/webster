@@ -745,15 +745,10 @@ const menuDefinition = [
             },
             {
                 name: "Report Issues",
-                href: "https://github.com/viliusle/miniPaint/issues",
+                href: "https://github.com/IlyaTsokota/webster/issues",
             },
             {
                 divider: true,
-            },
-            {
-                name: "About",
-                ellipsis: true,
-                target: "help/about.about",
             },
         ],
     },

@@ -13,38 +13,38 @@ import Helper_class from './../../libs/helpers.js';
 
 var template = `
 	<div class="row">
-		<span class="trn label">X</span>
-		<input type="number" id="detail_x" step="any" />
-		<button class="extra reset" type="button" id="reset_x" title="Reset">Reset</button>
-	</div>
-	<div class="row">
-		<span class="trn label">Y:</span>
-		<input type="number" id="detail_y" step="any" />
-		<button class="extra reset" type="button" id="reset_y" title="Reset">Reset</button>
-	</div>
-	<div class="row">
-		<span class="trn label">Width:</span>
-		<input type="number" id="detail_width" step="any" />
-		<button class="extra reset" type="button" id="reset_size" title="Reset">Reset</button>
-	</div>
-	<div class="row">
-		<span class="trn label">Height:</span>
-		<input type="number" id="detail_height" step="any" />
-	</div>
-	<hr />
-	<div class="row">
 		<span class="trn label">Rotate:</span>
-		<input type="number" min="-360" max="360" id="detail_rotate" />
 		<button class="extra reset" type="button" id="reset_rotate" title="Reset">Reset</button>
+		<input type="number" min="-360" max="360" id="detail_rotate" />
 	</div>
 	<div class="row">
 		<span class="trn label">Opacity:</span>
-		<input type="number" min="0" max="100" id="detail_opacity" />
 		<button class="extra reset" type="button" id="reset_opacity" title="Reset">Reset</button>
+		<input type="number" min="0" max="100" id="detail_opacity" />
 	</div>
 	<div class="row">
 		<span class="trn label">Color:</span>
 		<input style="padding: 0px;" type="color" id="detail_color" />
+	</div>
+	<hr />
+	<div class="row">
+		<span class="trn label">Width:</span>
+		<button class="extra reset" type="button" id="reset_size" title="Reset">Reset</button>
+		<input type="number" id="detail_width" step="any" style="width: 100px"/>
+	</div>
+	<div class="row">
+		<span class="trn label">Height:</span>
+		<input type="number" id="detail_height" step="any"  style="width: 100px"/>
+	</div>
+	<div class="row">
+		<span class="trn label">X</span>
+		<button class="extra reset" type="button" id="reset_x" title="Reset">Reset</button>
+		<input type="number" id="detail_x" step="any" />
+	</div>
+	<div class="row">
+		<span class="trn label">Y:</span>
+		<button class="extra reset" type="button" id="reset_y" title="Reset">Reset</button>
+		<input type="number" id="detail_y" step="any" />
 	</div>
 	<div id="text_detail_params">
 		<hr />
