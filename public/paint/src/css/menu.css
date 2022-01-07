@@ -164,7 +164,7 @@
 	display: none;
 	position: absolute;
 	width: 100%;
-	top: 0;
+	top: 70px;
 }
 .left_mobile_menu, .right_mobile_menu {
 	position: absolute;
@@ -204,6 +204,6 @@
 		display: block;
 	}
 	.main_menu > ul.menu_bar {
-		display: none;
+		flex-wrap: wrap;
 	}
 }

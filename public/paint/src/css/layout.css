@@ -246,10 +246,11 @@ body .sp-preview{
 .topbar{
 	grid-area: topbar;
 	display: flex;
+	flex-wrap: wrap;
 	background-color: var(--section-background-color);
 	padding: 3px 0;
 	margin: 5px;
-	height: 45px;
+	min-height: 45px;
 	position: relative;
 }
 
@@ -321,6 +322,7 @@ IMPORTANT: any new icon should also must be added on /service-worker.js + its ve
 	overflow-y: auto;
 	height: 100%;
 	position: relative;
+	transition: left 0.3s ease;
 }
 
 @media screen and (max-width:550px){
@@ -536,18 +538,18 @@ IMPORTANT: any new icon should also must be added on /service-worker.js + its ve
 		padding-top:50px;
 	}
 	.wrapper{
-		top: 50px;
+		top: 120px;
 	}
 	.submenu {
 		display: none;
 	}
 	.sidebar_left{
 		position: absolute;
-		left: -90px;
+		left: -260px;
 		background: var(--background);
 	}
 	.sidebar_left.active{
-		left: 0;
+		left: -5px;
 		z-index: 3;
 	}
 	.sidebar_right{
