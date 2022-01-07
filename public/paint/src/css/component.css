@@ -60,7 +60,7 @@
     cursor: pointer;
 	padding: 0;
     border: .2rem solid var(--input-background-color);
-	width: 3rem;
+	width: 10rem;
 }
 
 .ui_color_input .alpha_overlay {

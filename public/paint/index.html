@@ -22,6 +22,8 @@
 	<div class="wrapper">
 
 		<nav aria-label="Main Menu" class="main_menu" id="main_menu"></nav>
+
+		<div class="topbar" id="tools_container"></div>
 		
 		<div class="submenu">
 			<div class="block attributes" id="action_attributes"></div>
@@ -30,7 +32,17 @@
 			</button>
 		</div>
 		
-		<div class="sidebar_left" id="tools_container"></div>
+		<div class="sidebar_left">
+
+			<div class="preview block">
+				<div id="toggle_preview"></div>
+			</div>
+
+			<div class="colors block">
+				<div class="content" id="toggle_colors"></div>
+			</div>
+
+		</div>
 
 
 		<div class="middle_area" id="middle_area">
@@ -52,23 +64,13 @@
 		</div>
 
 		<div class="sidebar_right">
-			<div class="preview block">
-				<h2 class="trn toggle" data-target="toggle_preview">Preview</h2>
-				<div id="toggle_preview"></div>
-			</div>
 			
-			<div class="colors block">
-				<h2 class="trn toggle" data-target="toggle_colors">Colors</h2>
-				<div class="content" id="toggle_colors"></div>
-			</div>
 			
 			<div class="block" id="info_base">
-				<h2 class="trn toggle toggle-full" data-target="toggle_info">Information</h2>
 				<div class="content" id="toggle_info"></div>
 			</div>
 			
 			<div class="details block" id="details_base">
-				<h2 class="trn toggle toggle-full" data-target="toggle_details">Layer details</h2>
 				<div class="content" id="toggle_details"></div>
 			</div>
 			
@@ -82,6 +84,7 @@
 		<button class="left_mobile_menu" id="left_mobile_menu_button" type="button">
 			<span class="sr_only">Toggle Menu</span>
 		</button>
+		<span class="mobile_menu_title">webster</span>
 		<button class="right_mobile_menu" id="mobile_menu_button" type="button">
 			<span class="sr_only">Toggle Menu</span>
 		</button>

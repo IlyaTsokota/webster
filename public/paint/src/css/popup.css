@@ -251,7 +251,7 @@
 	}
 	#popups .popup tr{
 		display: block;
-		margin-bottom: 10px;
+		margin-bottom: 5px;
 	}
 	#popups .popup td, #popups .popup th{
 		display: block;

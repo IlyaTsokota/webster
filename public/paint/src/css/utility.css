@@ -79,3 +79,6 @@ input[type="number"].input_cw_15 { max-width: 18.25rem; }
 .ui_number_input.input_cw_13 { max-width: calc(14.25rem + var(--number-input-arrow-width)); }
 .ui_number_input.input_cw_14 { max-width: calc(15.25rem + var(--number-input-arrow-width)); }
 .ui_number_input.input_cw_15 { max-width: calc(16.25rem + var(--number-input-arrow-width)); }
+
+.alertify-notifier { bottom: auto; top: 10px; }
+.alertify-notifier .ajs-message.ajs-error { background-color: tomato !important; }
