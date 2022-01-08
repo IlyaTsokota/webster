@@ -62,6 +62,7 @@ const Header = (props) => {
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
+        setAnchorElUser(null);
     };
 
     const handleCloseUserMenu = () => {
@@ -228,8 +229,9 @@ const Header = (props) => {
                                         onClose={handleCloseUserMenu}
                                     >
                                         <MenuItem
-                                            onClick={(e) => {
-                                                handleCloseNavMenu(e);
+                                            onClick={() => {
+                                                handleCloseNavMenu();
+                                                handleCloseUserMenu();
                                                 cookies.remove("user");
                                                 dispatch(removeUser());
                                                 navigate("/");

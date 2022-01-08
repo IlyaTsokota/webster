@@ -73,6 +73,7 @@ const Form = ({ text, handleSubmit }) => {
                         type="email"
                         name="email"
                         fullWidth
+                        autoComplete="off"
                         helperText={emailError}
                         onInput={onChangeEmail}
                         onFocus={onChangeEmail}
@@ -86,6 +87,7 @@ const Form = ({ text, handleSubmit }) => {
                         type="password"
                         value={password}
                         fullWidth
+                        autoComplete="off"
                         helperText={passwordError}
                         name="password"
                         onInput={onChangePassword}
